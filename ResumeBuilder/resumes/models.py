@@ -54,12 +54,13 @@ class JobHistory(models.Model):
     def __str__(self):
         return self.job_title
 
+
 class Skills(models.Model):
     resume = models.ForeignKey(Resume, on_delete=models.CASCADE)
     skill = models.CharField(max_length=25)
 
     def __str__(self):
-        return self.refname
+        return self.skill
 
 
 class References(models.Model):

@@ -1,0 +1,19 @@
+<h3>Search Resumes</h3>
+
+<form action="{% url 'search' %}" method="get">
+    <input type="text" value="" name="fname"> Candidate First Name</input><p></p>
+    <input type="text" value="" name="lname"> Candidate Last Name</input><p></p>
+    <input type="text" value="" name="skill"> Desired Skill</input><p></p>
+    <input type="submit" value="Search"></input>
+</form>
+
+
+{% if resumes %}
+    <ul>
+    {% for resume in resumes %}
+        <li><a href="/resumes/{{ resume.0 }}/">{{ resume.3 }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No resumes are available.</p>
+{% endif %}

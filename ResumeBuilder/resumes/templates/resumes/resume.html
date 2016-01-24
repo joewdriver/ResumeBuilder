@@ -1,0 +1,37 @@
+    <h2><strong>{{ resume.applicant }} Professional Resume</strong></h2>
+<ul>
+    <li>{{ resume.statement }}</li>
+    <li>Desired Salary Range from {{ resume.low_salary }}$ to {{ resume.high_salary }}$</li>
+    <p></p>
+
+    <h3>Job History</h3>
+    {% for job in jobs %}
+    <li>{{ job.job_title }} at {{ job.employer }} from {{ job.start_year }} to {{ job.end_year }}</li>
+    <li>Description: {{ job.description }}</li>
+    <li>Salary: {{ job.end_salary }}</li>
+    <p></p>
+    {% endfor %}
+    <p></p>
+
+    <h3>Education</h3>
+    {% for school in education %}
+    <li>{{ school.degree_attained }} from {{ school.school }}</li>
+    <li>From {{ school.start_year }} to {{ school.end_year }}</li>
+    <p></p>
+    {% endfor %}
+    <p></p>
+
+    <h3>Skills</h3>
+    {% for skill in skills %}
+    <li>{{ skill.skill }}</li>
+    {% endfor %}
+
+    <h3>References</h3>
+    {% for reference in references %}
+    <li>{{ reference.ref_name }} at {{ reference.ref_employer }}</li>
+    <li>phone: {{ reference.ref_phone }}</li>
+    <li>email: {{ reference.ref_email }}</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'search' %}">Search Additional Resumes</a>
